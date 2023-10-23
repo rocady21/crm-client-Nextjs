@@ -16,8 +16,8 @@ const Sidebar = ()=> {
             </div>
 
             <nav className="mt-5 list-none">
-                <li className={router.pathname === "/clientes"? "bg-blue-800 p-3" : "p-3"} >
-                    <Link href={"/clientes"}  legacyBehavior><a className="text-white" id="link">Clientes</a></Link>
+                <li className={router.pathname === "/"? "bg-blue-800 p-3" : "p-3"} >
+                    <Link href={"/"}  legacyBehavior><a className="text-white" id="link">Clientes</a></Link>
                 </li>
                 <li className={router.pathname === "/productos"? "bg-blue-800 p-3" : "p-3"}>
                     <Link href={"/productos"}  legacyBehavior><a className="text-white" id="link">Productos</a></Link>

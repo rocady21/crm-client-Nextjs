@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import * as yup from "yup"
 import { useFormik } from "formik"
 import {gql,useMutation} from "@apollo/client"
-import {useRouter} from "next/router"
+import {useRouter} from "next/navigation"
 import Layout from "../components/Layout"
 
 const LOGINUSER = gql`
