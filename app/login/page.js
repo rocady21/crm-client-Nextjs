@@ -42,10 +42,10 @@ const Login = ()=> {
                 })
 
                 const {token} = data.loginUser
-
                 localStorage.setItem("token",token)
 
                 router.push("/")
+
             } catch (error) {
                 setError(error.message)
 

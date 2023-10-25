@@ -103,7 +103,7 @@ const nuevoCliente = ()=> {
     return (
         <>
         <Layout>
-            <h1 className="text-2xl text-gray-800 font-light my-4">Nuevo Cliente</h1>
+            <h1 className="text-2xl text-gray-800 font-light">Nuevo Cliente</h1>
 
             {resp.type === "Success" ? <div className={"bloc p-4 bg-green-200 border-l-4 border-green-600"}>
                 <p>{resp.message}</p>
@@ -112,7 +112,7 @@ const nuevoCliente = ()=> {
                 <p>{resp.message}</p>
             </div> : null } 
 
-            <div className="flex justify-center">
+            <div className="flex justify-center ">
                 <div className="w-full max-w-lg">
                     <form onSubmit={formik.handleSubmit} className="bg-white shadow-md px-8 pt-6 pb-8 mb-4">
                         <div className="mb-4">
