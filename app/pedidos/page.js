@@ -1,7 +1,15 @@
+"use client"
+
 import React from "react"
 import Layout from "../components/Layout"
+import { useRouter,useSearchParams } from "next/navigation"
 
 const Pedidos = ()=> {
+
+    const params = useSearchParams()
+    
+
+    console.log(params);
     return (
         <>
             <Layout>
