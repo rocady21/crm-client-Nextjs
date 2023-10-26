@@ -27,7 +27,6 @@ const Clientes = ()=> {
     const router = useRouter()
     console.log(router);
     const {data,loading,error} = useQuery(OBTENER_CLIENTES)
-    const {idSelected,setIdSelected} = useState(null)
     const [borrarCliente] = useMutation(BORRAR_CLIENTE,{
       update(cache) {
         // obt copia del obj cache
