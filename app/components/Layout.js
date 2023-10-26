@@ -18,10 +18,10 @@ const Layout = ({children})=> {
                 <div className="flex flex-row min-h-screen">
                     <Sidebar/>
 
-                    <main className="sm:w-2/3 xl:w-4/5 sn:min-h-screen p-5">
+                    <div className="sm:w-2/3 xl:w-4/5 sn:min-h-screen p-5">
                         <Header/>
                         {children}
-                    </main>
+                    </div>
 
 
                 </div>

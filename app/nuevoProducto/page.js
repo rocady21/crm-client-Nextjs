@@ -34,14 +34,15 @@ const NUEVO_PRODUCTO = gql`
 const NuevoProducto = ()=> {
 
     const [nuevoProducto] = useMutation(NUEVO_PRODUCTO,{
-        update(cache, producto) {
+        update(cache,{ data:{nuevoProducto}}) {
 
+            // en este mut, dentro de la data esta nuestro nuevo prod con el mismo nombre del mut
             const {obtenerProductos} = cache.readQuery({query:OBTENER_PRODUCTOS})
 
             cache.writeQuery({
                 query:OBTENER_PRODUCTOS,
                 data:{
-                    obtenerProductos: {...obtenerProductos,producto}
+                    obtenerProductos: [...obtenerProductos,nuevoProducto]
                 }
             })
 

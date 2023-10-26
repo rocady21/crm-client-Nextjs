@@ -5,6 +5,7 @@ import './globals.css'
 
 import {ApolloProvider} from "@apollo/client"
 import client from '@/config/apollo'
+import PedidoState from './context/pedidos/PedidosState'
 const inter = Inter({ subsets: ['latin'] })
 
 
@@ -15,9 +16,11 @@ export default function RootLayout({ children }) {
 
     <html lang="en">
       <body className={inter.className}>
-        <ApolloProvider client={client}>
-          {children}
-        </ApolloProvider>
+        <PedidoState>
+          <ApolloProvider client={client}>
+            {children}
+          </ApolloProvider>
+        </PedidoState>
       </body>
     </html>
   )
