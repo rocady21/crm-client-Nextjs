@@ -33,7 +33,7 @@ const AsignarCliente = ()=> {
 
     return (
         <>
-        <h1 className="mt-10 my-2 bg-white border-l-4 border-gray-800 text-gray-700 p-2 text-sm font-bold">Asigna Pedido al cliente</h1>
+        <h1 className="mt-10 my-2 bg-white border-l-4 border-gray-900 text-gray-700 p-2 text-sm font-bold">Asigna Pedido al cliente</h1>
             <Select
             className="mt-3 "
             options={obtenerClientesVendedor}
