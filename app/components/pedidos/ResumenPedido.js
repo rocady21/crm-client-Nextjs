@@ -7,7 +7,9 @@ import ProductoResume from "./ProductoResume";
 const ResumenPedido = ()=> {
 
     const {productos} = useContext(PedidoContext)
-    console.log(productos);
+    
+
+
     return (
         <>
             <h1 className="mt-10 my-2 bg-white border-l-4 border-gray-800 text-gray-700 p-2 text-sm font-bold">Asigna las Cantidades</h1>

@@ -27,7 +27,6 @@ const Header = ()=> {
     } 
     
     if(!data.obtenerInfoByToken) {
-        console.log("mp deeeeeeeeeeeea");
         return router.push("/login")
     }
     return (

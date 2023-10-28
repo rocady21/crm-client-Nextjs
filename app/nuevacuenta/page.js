@@ -48,7 +48,6 @@ const NuevaCuenta = ()=> {
             password: yup.string().required("La contraseña debe de ser obligatoria").min(6,"El password debe de ser mayor a 6")
         }),
         onSubmit:async valores => {
-            console.log("xd");
             const {nombre,apellido,email,password} = valores
             try {
                 const {data} = await nuevoUsuario({

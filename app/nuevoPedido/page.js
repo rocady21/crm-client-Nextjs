@@ -13,10 +13,13 @@ import Total from "../components/pedidos/Total";
 const NuevoPedido = ()=> {
 
     // usar context
-    const ctx = useContext(PedidoContext)
+    const {productos} = useContext(PedidoContext)
 
-    console.log(ctx);
+    console.log(productos);
 
+    const registrarPedido = ()=> {
+        
+    }
     return (
         <Layout>
             <h1 className="text 2xl mt-5 text-gray-800 font-light ">Nuevo pedido</h1>
@@ -27,7 +30,7 @@ const NuevoPedido = ()=> {
                     <ResumenPedido/>
                     <Total/>
 
-                    <button className={"bg-gray-800 w-full mt-5 p-2 text-white hover:bg-gray-900"}>Registrar Pedido</button>
+                    <button onClick={registrarPedido} className={"bg-gray-800 w-full mt-5 p-2 text-white hover:bg-gray-900"}>Registrar Pedido</button>
                 </div>
             </div>
             

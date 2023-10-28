@@ -23,6 +23,7 @@ const AsignarProducto = ()=> {
     const {data,loading,error} = useQuery(OBTENER_PRODUCTOS)
     
         useEffect(()=> {
+            console.log(Productos);
             agregarProducto(Productos)
         },[Productos])
 

@@ -25,7 +25,6 @@ const BORRAR_CLIENTE = gql`
 
 const Clientes = ()=> {
     const router = useRouter()
-    console.log(router);
     const {data,loading,error} = useQuery(OBTENER_CLIENTES)
     const [borrarCliente] = useMutation(BORRAR_CLIENTE,{
       update(cache) {

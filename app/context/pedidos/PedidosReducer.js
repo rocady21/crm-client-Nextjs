@@ -1,7 +1,8 @@
 import {
     SELECCIONAR_CANTIDAD_PRODUCTOS,
     SELECCIONAR_CLIENTE,
-    SELECCIONAR_PRODUCTO
+    SELECCIONAR_PRODUCTO,
+    CAMBIAR_NUMERO_A_1
 } from "../../../types"
 
 
@@ -17,6 +18,21 @@ export default (state,actions) => {
             return {
                 ...state,
                 productos: actions.payload
+            }
+        case CAMBIAR_NUMERO_A_1: 
+            return {
+                ...state,
+                numero: actions.payload
+            }
+        case SELECCIONAR_CANTIDAD_PRODUCTOS:
+            return {
+                ...state,
+                productos: state.productos.map((prod)=> {
+                    if(prod.id = actions.payload.id) {
+                        return prod = actions.payload
+                    }
+                    return prod
+                })
             }
         default:
             return state
