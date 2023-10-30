@@ -3,14 +3,13 @@ import React, { useContext, useEffect, useState } from "react";
 
 const ProductoResume = ({producto})=> {
 
-    const {agregarProductoNuevo} = useContext(PedidoContext)
+    const {agregarProductoNuevo,actualizarTotal} = useContext(PedidoContext)
     const {nombre,existencia,precio} = producto
     const [cantidad, setCantidad] = useState(1)
 
-    console.log("xd");
-
     useEffect(()=> {
         sumarCantidad(producto)
+        actualizarTotal()
     },[cantidad])
     
     const sumarCantidad = (prod)=> {

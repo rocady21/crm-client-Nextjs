@@ -22,10 +22,9 @@ const AsignarProducto = ()=> {
     const {agregarProducto} = useContext(PedidoContext)
     const {data,loading,error} = useQuery(OBTENER_PRODUCTOS)
     
-        useEffect(()=> {
-            console.log(Productos);
-            agregarProducto(Productos)
-        },[Productos])
+    useEffect(()=> {
+        agregarProducto(Productos)
+    },[Productos])
 
     if(loading === true) return true
 

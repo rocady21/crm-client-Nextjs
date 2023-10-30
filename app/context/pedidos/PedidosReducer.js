@@ -2,7 +2,8 @@ import {
     SELECCIONAR_CANTIDAD_PRODUCTOS,
     SELECCIONAR_CLIENTE,
     SELECCIONAR_PRODUCTO,
-    CAMBIAR_NUMERO_A_1
+    CAMBIAR_NUMERO_A_1,
+    ACTUALIZAR_TOTAL
 } from "../../../types"
 
 
@@ -12,7 +13,7 @@ export default (state,actions) => {
         case SELECCIONAR_CLIENTE:
             return {
                 ...state,
-                cleinte: actions.payload
+                cliente: actions.payload
             }
         case SELECCIONAR_PRODUCTO:
             return {
@@ -28,11 +29,18 @@ export default (state,actions) => {
             return {
                 ...state,
                 productos: state.productos.map((prod)=> {
-                    if(prod.id = actions.payload.id) {
-                        return prod = actions.payload
+                    if(prod.id === actions.payload.id) {
+                        return actions.payload
+                    }  else {
+                        return prod
                     }
-                    return prod
                 })
+            }
+        case ACTUALIZAR_TOTAL:
+            return {
+                ...state,
+                // reduce lo que hace es que a un array , recibe una constante y cada producto para ir sumandoo a esa const como nosotros queramos
+                total: state.productos.reduce((tot,articulo)=> tot + articulo.precio * articulo.cantidad,0)
             }
         default:
             return state

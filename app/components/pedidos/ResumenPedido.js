@@ -15,8 +15,8 @@ const ResumenPedido = ()=> {
             <h1 className="mt-10 my-2 bg-white border-l-4 border-gray-800 text-gray-700 p-2 text-sm font-bold">Asigna las Cantidades</h1>
             {
                 productos.length !== 0?  <>
-                    {productos.map((prod)=> {
-                        return <ProductoResume key={prod.id} producto = {prod}/>
+                    {productos.map((prod,index)=> {
+                        return <ProductoResume key={index + "i"} producto = {prod}/>
                     })}
                 </> : "No hay productos"
             }
