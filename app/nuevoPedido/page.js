@@ -22,13 +22,13 @@ const NUEVO_PEDIDO = gql`
 `
 const NuevoPedido = ()=> {
     // usar context
+
+    const router = useRouter()
     const [ mensaje, setMensaje] = useState(null)
     const {productos,cliente,total} = useContext(PedidoContext)
     const [nuevoPedido] = useMutation(NUEVO_PEDIDO)
     const validarPedido = ()=> {
-        console.log(productos);
-        console.log(cliente);
-        console.log(total);
+
         // la funcion every es para un array, sirve para mapear y validar condiciones
         return !productos.every(producto => producto.cantidad > 0) || total === 0 || !cliente.id ? "opacity-50 cursor-not-allowed" : ""
     }
@@ -39,9 +39,12 @@ const NuevoPedido = ()=> {
         try {
         // sacar la data que necesitamos para pedidos    
         const productosFinal = productos.map((prod)=> {
+            console.log(prod);
             return {
                 id:prod.id,
-                cantidad:prod.cantidad
+                cantidad:parseInt(prod.cantidad),
+                nombre:prod.nombre,
+                precio:prod.precio
             }
         }) 
 

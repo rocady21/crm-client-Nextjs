@@ -9,15 +9,23 @@ import Pedido from "../components/Pedido"
 
 
 const OBTENER_PEDIDOS = gql`
-    query obtenerPedidos {
-        obtenerPedidos {
-        cliente,
+    query obtenerPedidosVendedor {
+        obtenerPedidosVendedor {
+        cliente {
+            id,
+            nombre,
+            apellido,
+            email,
+            telefono
+        }
         creado,
         estado,
         id,
         pedido {
-            cantidad
             id
+            cantidad
+            nombre,
+            precio
         },
         total,
         vendedor
@@ -32,7 +40,7 @@ const Pedidos = ()=> {
 
     if(loading === true) return "Cargando..."
 
-    const {obtenerPedidos} = data
+    const {obtenerPedidosVendedor} = data
     return (
         <>
             <Layout>
@@ -41,10 +49,10 @@ const Pedidos = ()=> {
                     <a className="bg-blue-800 py-2 px-4 mt-3 text-white shadow hover:bg-gray-800 mb-3 font-bold uppercase text-sm">Nuevo Pedido</a>
                 </Link>
                 
-                {obtenerPedidos.lenght === 0 ? (
+                {obtenerPedidosVendedor.lenght === 0 ? (
                     <a className="mt-5 text-center text-2xl">No hay pedidos</a>
-                    ) : obtenerPedidos.map((pedido)=>{
-                        return <Pedido/>
+                    ) : obtenerPedidosVendedor.map((pedido)=>{
+                        return <Pedido key={pedido.id} pedido={pedido}/>
                     })
                 }
                 <div>
