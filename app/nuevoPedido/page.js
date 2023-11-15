@@ -20,13 +20,51 @@ const NUEVO_PEDIDO = gql`
         }
     }
 `
+
+const OBTENER_PEDIDOS = gql`
+    query obtenerPedidosVendedor {
+        obtenerPedidosVendedor {
+        cliente {
+            id,
+            nombre,
+            apellido,
+            email,
+            telefono
+        }
+        creado,
+        estado,
+        id,
+        pedido {
+            id
+            cantidad
+            nombre,
+            precio
+        },
+        total,
+        vendedor
+        }
+    }
+`
 const NuevoPedido = ()=> {
     // usar context
 
     const router = useRouter()
     const [ mensaje, setMensaje] = useState(null)
     const {productos,cliente,total} = useContext(PedidoContext)
-    const [nuevoPedido] = useMutation(NUEVO_PEDIDO)
+    const [nuevoPedido] = useMutation(NUEVO_PEDIDO,{
+        update(cache, { data :nuevoPedido}) {
+            //obtenemos el obj de cache que queramos actualizar
+            const {obtenerPedidosVendedor} = cache.readQuery({query:OBTENER_PEDIDOS})
+            
+            // reescribimos el cache(NUNCA SE DEBE MODIFICAR,SOLO REESCRIBIR)
+            cache.writeQuery({
+                query: OBTENER_PEDIDOS,
+                data:{
+                    obtenerPedidosVendedor:[...obtenerPedidosVendedor,nuevoPedido]
+                }
+            })
+        }  
+    })
     const validarPedido = ()=> {
 
         // la funcion every es para un array, sirve para mapear y validar condiciones
